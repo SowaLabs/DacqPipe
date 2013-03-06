@@ -133,7 +133,7 @@ namespace RssScraperConsole
                     {
                         try
                         {
-                            OutputLine(w, "### PROCESSING {0} ###", line);
+                            OutputLine(w, "# P # RSS list: {0}", line);
                             Set<string> links = new Set<string>();
                             Uri baseUrl = new Uri(line);
                             string html = WebUtils.GetWebPageDetectEncoding(line);
@@ -191,7 +191,7 @@ namespace RssScraperConsole
                                                     }
                                                 }
                                                 if (miRemoveNonRss && !rssXmlFound) { Output(w, "#"); }
-                                                Output(w, url + "\r\n");
+                                                OutputLine(w, Utils.ToOneLine(url));
                                                 if (miOutputTestResult)
                                                 {
                                                     OutputLine(w, "# " + message);
@@ -199,7 +199,7 @@ namespace RssScraperConsole
                                             }
                                             else
                                             {
-                                                OutputLine(w, url);
+                                                OutputLine(w, Utils.ToOneLine(url));
                                             }
                                             links.Add(urlLower);
                                         }
