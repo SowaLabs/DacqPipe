@@ -11,7 +11,7 @@ namespace RssScraperConsole
 {
     class Program
     {
-        private static string[] mExcludeList = new string[] { 
+        static string[] mExcludeList = new string[] { 
             "fusion.google.com",
             "add.my.yahoo.com",
             "my.yahoo.com/add", 
@@ -25,7 +25,7 @@ namespace RssScraperConsole
             "www.addthis.com"
             };
 
-        private static string[] mRegexList = new string[] { 
+        static string[] mRegexList = new string[] { 
             @"href=[""'](?<rssUrl>[^""']*\.rss)[""']",
             @"href=[""'](?<rssUrl>[^""']*\.xml)[""']",
             @"href=[""'](?<rssUrl>[^""']*\.rdf)[""']",
@@ -34,20 +34,20 @@ namespace RssScraperConsole
             };
 
         // TODO: make configurable
-        private static bool miTestLinks
+        static bool miTestLinks
             = true;
-        private static bool miConvertAtomToRss
+        static bool miConvertAtomToRss
             = true;
-        private static bool miFeedburnerFormat
+        static bool miFeedburnerFormat
             = true;
-        private static bool miRemoveNonRss
+        static bool miRemoveNonRss
             = true;
-        private static bool miOutputTestResult
+        static bool miOutputTestResult
             = false;
 
-        private static string mInputFileName
+        static string mInputFileName
             = Utils.GetConfigValue("InputFileName");
-        private static string mOutputFileName
+        static string mOutputFileName
             = Utils.GetConfigValue("OutputFileName");
 
         static void OutputLine(StreamWriter w, string str, params object[] args)
@@ -63,12 +63,12 @@ namespace RssScraperConsole
             w.Write(str, args);
         }
 
-        private static bool TestRssXml(string rssXml)
+        static bool TestRssXml(string rssXml)
         {
             return rssXml.Contains("<item") || rssXml.Contains("<channel");
         }
 
-        private static bool TestAtomXml(string atomXml)
+        static bool TestAtomXml(string atomXml)
         {
             return atomXml.Contains("<entry") || atomXml.Contains("<feed");
         }
@@ -124,92 +124,99 @@ namespace RssScraperConsole
             }
             using (StreamWriter w = new StreamWriter(mOutputFileName, /*append=*/false, Encoding.UTF8))
             {
-                // for each idex page, fetch all RSS links
+                // for each index page, fetch all RSS links
                 foreach (string _line in taggedLines)
                 {
                     string line = _line.Substring(2);
-                    if (_line.StartsWith("C")) { OutputLine(w, line); }
+                    if (_line.StartsWith("C")) { OutputLine(w, line); } // copy
                     else if (_line.StartsWith("P")) // process
                     {
-                        OutputLine(w, "### PROCESSING {0} ###", line);
-                        Set<string> links = new Set<string>();
-                        Uri baseUrl = new Uri(line);
-                        string html = WebUtils.GetWebPageDetectEncoding(line);
-                        foreach (string regex in includeList)
+                        try
                         {
-                            try
+                            OutputLine(w, "### PROCESSING {0} ###", line);
+                            Set<string> links = new Set<string>();
+                            Uri baseUrl = new Uri(line);
+                            string html = WebUtils.GetWebPageDetectEncoding(line);
+                            foreach (string regex in includeList)
                             {
-                                Regex r = new Regex(regex, RegexOptions.IgnoreCase);
-                                Match m = r.Match(html);
-                                while (m.Success)
+                                try
                                 {
-                                    string message = "RSS feed NOT detected.";
-                                    string url = m.Result("${rssUrl}").Trim();
-                                    url = new Uri(baseUrl, url).ToString();
-                                    string urlLower = url.ToLower();
-                                    // test whether to include link
-                                    bool ok = true;
-                                    foreach (string substr in excludeList)
+                                    Regex r = new Regex(regex, RegexOptions.IgnoreCase);
+                                    Match m = r.Match(html);
+                                    while (m.Success)
                                     {
-                                        if (urlLower.Contains(substr)) { ok = false; break; }
-                                    }
-                                    if (ok && !links.Contains(urlLower))
-                                    {
-                                        // test RSS file
-                                        if (miTestLinks)
+                                        string message = "RSS feed NOT detected.";
+                                        string url = m.Result("${rssUrl}").Trim();
+                                        url = new Uri(baseUrl, url).ToString();
+                                        string urlLower = url.ToLower();
+                                        // test whether to include link
+                                        bool ok = true;
+                                        foreach (string substr in excludeList)
                                         {
-                                            string xml = null;
-                                            try { xml = WebUtils.GetWebPageDetectEncoding(url); }
-                                            catch { }
-                                            bool rssXmlFound = xml != null && TestRssXml(xml);
-                                            if (rssXmlFound) { message = "RSS feed detected."; }
-                                            // convert Atom to RSS
-                                            if (xml != null && miConvertAtomToRss && !rssXmlFound && TestAtomXml(xml))
+                                            if (urlLower.Contains(substr)) { ok = false; break; }
+                                        }
+                                        if (ok && !links.Contains(urlLower))
+                                        {
+                                            // test RSS file
+                                            if (miTestLinks)
                                             {
-                                                url = "http://www.devtacular.com/utilities/atomtorss/?url=" + HttpUtility.HtmlEncode(url);
-                                                xml = null;
+                                                string xml = null;
                                                 try { xml = WebUtils.GetWebPageDetectEncoding(url); }
                                                 catch { }
-                                                rssXmlFound = xml != null && TestRssXml(xml);
-                                                if (rssXmlFound) { message = "RSS feed detected after converting from Atom."; }
-                                            }
-                                            else // try the format=xml trick
-                                            {
-                                                if (miFeedburnerFormat && !rssXmlFound)
+                                                bool rssXmlFound = xml != null && TestRssXml(xml);
+                                                if (rssXmlFound) { message = "RSS feed detected."; }
+                                                // convert Atom to RSS
+                                                if (xml != null && miConvertAtomToRss && !rssXmlFound && TestAtomXml(xml))
                                                 {
-                                                    string newUrl = url + (url.Contains("?") ? "&" : "?") + "format=xml";
-                                                    try { xml = WebUtils.GetWebPageDetectEncoding(newUrl); }
+                                                    url = "http://www.devtacular.com/utilities/atomtorss/?url=" + HttpUtility.HtmlEncode(url);
+                                                    xml = null;
+                                                    try { xml = WebUtils.GetWebPageDetectEncoding(url); }
                                                     catch { }
                                                     rssXmlFound = xml != null && TestRssXml(xml);
-                                                    if (rssXmlFound)
+                                                    if (rssXmlFound) { message = "RSS feed detected after converting from Atom."; }
+                                                }
+                                                else // try the format=xml trick
+                                                {
+                                                    if (miFeedburnerFormat && !rssXmlFound)
                                                     {
-                                                        message = "RSS feed detected after applying the format=xml trick.";
-                                                        url = newUrl;
+                                                        string newUrl = url + (url.Contains("?") ? "&" : "?") + "format=xml";
+                                                        try { xml = WebUtils.GetWebPageDetectEncoding(newUrl); }
+                                                        catch { }
+                                                        rssXmlFound = xml != null && TestRssXml(xml);
+                                                        if (rssXmlFound)
+                                                        {
+                                                            message = "RSS feed detected after applying the format=xml trick.";
+                                                            url = newUrl;
+                                                        }
                                                     }
                                                 }
+                                                if (miRemoveNonRss && !rssXmlFound) { Output(w, "#"); }
+                                                Output(w, url + "\r\n");
+                                                if (miOutputTestResult)
+                                                {
+                                                    OutputLine(w, "# " + message);
+                                                }
                                             }
-                                            if (miRemoveNonRss && !rssXmlFound) { Output(w, "#"); }
-                                            Output(w, url + "\r\n");
-                                            if (miOutputTestResult)
+                                            else
                                             {
-                                                OutputLine(w, "# " + message);
+                                                OutputLine(w, url);
                                             }
+                                            links.Add(urlLower);
                                         }
-                                        else
-                                        {
-                                            OutputLine(w, url);
-                                        }
-                                        links.Add(urlLower);
-                                    }
-                                    m = m.NextMatch();
-                                } // m.Success
-                            }
-                            catch (Exception e)
-                            {
-                                OutputLine(w, e.Message + "\r\n" + e.StackTrace);
+                                        m = m.NextMatch();
+                                    } // m.Success
+                                }
+                                catch (Exception e)
+                                {
+                                    OutputLine(w, e.Message + "\r\n" + e.StackTrace);
+                                }
                             }
                         }
-                    }
+                        catch (Exception e)
+                        {
+                            OutputLine(w, e.Message + "\r\n" + e.StackTrace);
+                        }
+                    } 
                 }
             }
         }
