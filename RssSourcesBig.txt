@@ -2,6 +2,8 @@
 #
 # This list was thoroughly revised on Mar 9, 2013
 #
+# Put into production: Mar 11, 2013
+#
 # Look at the GIT history for older versions
 #
 ###################################################
@@ -1934,9 +1936,44 @@ http://timesofindia.indiatimes.com/rssfeedsvideomostrecent.cms
 #http://timesofindia.indiatimes.com/feedback.cms
 
 #Site: usatoday
-# Site: http://www.usatoday.com/money/default.htm
-#http://content.usatoday.com/marketing/rss/index.aspx?POE=FOOTER
-# This site requires manual scraping :-/
+# Site: http://www.usatoday.com
+# P # RSS list: http://www.usatoday.com/rss/
+http://rssfeeds.usatoday.com/usatoday-NewsTopStories
+http://rssfeeds.usatoday.com/UsatodaycomNation-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomWashington-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomWorld-TopStories
+http://rssfeeds.usatoday.com/News-Opinion
+http://rssfeeds.usatoday.com/UsatodaycomSports-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomNfl-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomCollegeFootball-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomMlb-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomNba-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomGolf-TopStories
+http://rssfeeds.usatoday.com/topfantasy
+http://rssfeeds.usatoday.com/UsatodaycomNhl-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomCollegeMensBasketball-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomSoccer-TopStories
+http://rssfeeds.usatoday.com/topmotorsports
+http://rssfeeds.usatoday.com/UsatodayTennis-TopStories
+http://rssfeeds.usatoday.com/UsatodayCycling-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomOlympicsCoverage-TopStories
+http://rssfeeds.usatoday.com/usatoday-LifeTopStories
+http://rssfeeds.usatoday.com/toppeople
+http://rssfeeds.usatoday.com/UsatodaycomMovies-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomMusic-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomTelevision-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomBooks-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomMoney-TopStories
+http://rssfeeds.usatoday.com/UsatodaycomMoney-Healey
+http://rssfeeds.usatoday.com/usatoday-TechTopStories
+http://rssfeeds.usatoday.com/UsatodaycomTech-PersonalTalk
+http://rssfeeds.usatoday.com/topgaming
+http://rssfeeds.usatoday.com/UsatodaycomTravel-TopStories
+http://rssfeeds.usatoday.com/UsatodayTravel-Destinations
+http://rssfeeds.usatoday.com/UsatodayTravel-Flights
+http://rssfeeds.usatoday.com/TP-TheCruiseLog
+http://rssfeeds.usatoday.com/UsatodayTravel-Hotels
+#http://www.usatoday.com/rss/
 
 Site: nytimes
 # Site: http://www.nytimes.com/pages/business/economy/index.html?src=busfn
