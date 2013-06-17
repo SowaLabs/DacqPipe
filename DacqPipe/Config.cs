@@ -42,7 +42,7 @@ namespace Dacq
         public static readonly bool EnableZmq
             = Utils.GetConfigValue<bool>("enableZeroMQ", "false");
         // hard-coded
-        public static readonly int NumWriters
+        public static readonly int NumPipes
             = 8;
         public static readonly int SleepBetweenPolls
             = 15 * 60000;
