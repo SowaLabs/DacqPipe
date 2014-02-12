@@ -158,12 +158,6 @@ namespace Dacq
             PassOnComponent lb = new PassOnComponent(); // data load balancer
             lb.DispatchPolicy = DispatchPolicy.BalanceLoadMax;
             dataConsumers.Add(lb);
-            ZeroMqEmitterComponent zmq = null;
-            if (Config.EnableZmq)
-            {
-                zmq = new ZeroMqEmitterComponent();
-                dataConsumers.Add(zmq);
-            }
             if (Config.dbConnectionString != null)
             {
                 UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.dbConnectionString);
@@ -243,13 +237,11 @@ namespace Dacq
                     tok.Subscribe(lem);
                     lem.Subscribe(pt);
                     pt.Subscribe(dw);
-                    if (Config.EnableZmq) { pt.Subscribe(zmq); }
                     dataConsumers.AddRange(new StreamDataConsumer[] { dwc, df, ld, htc, ssc, tok, pt, dw, lem, bpr });
                 }
                 else
                 {
                     df.Subscribe(dw);
-                    if (Config.EnableZmq) { df.Subscribe(zmq); }
                     dataConsumers.AddRange(new StreamDataConsumer[] { dwc, df, ld, htc, dw, bpr });
                 }
             }

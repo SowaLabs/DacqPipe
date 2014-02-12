@@ -25,8 +25,6 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlDataRootDump");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
-        public static readonly bool EnableZmq
-            = Utils.GetConfigValue<bool>("enableZeroMQ", "false");
         // hard-coded
         public static readonly int NumPipes
             = 8;
