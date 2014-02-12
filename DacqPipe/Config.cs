@@ -15,10 +15,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("dbConnectionString");
         public static readonly string DbConnectionStringDump
             = Utils.GetConfigValue<string>("dbConnectionStringDump");
-        //public static readonly string SqlDbConnectionString
-        //    = Utils.GetConfigValue<string>("SqlDbConnectionString"); // *** inconsistent casing
         public static readonly string SqlDbConnectionStringNew
-            = Utils.GetConfigValue<string>("SqlDbConnectionStringNew"); // *** inconsistent casing
+            = Utils.GetConfigValue<string>("sqlDbConnectionStringNew"); 
         public static readonly string ClientIp
             = Utils.GetConfigValue<string>("clientIp");
         public static readonly string XmlDataRoot
@@ -38,7 +36,7 @@ namespace Dacq
         public static readonly string HtmlDataRootDumpNew
             = HtmlDataRootDump == null ? null : (HtmlDataRootDump.TrimEnd('\\') + "\\" + "New");
         public static readonly string Language
-            = Utils.GetConfigValue<string>("Language", "English"); // *** inconsistent casing
+            = Utils.GetConfigValue<string>("language", "English"); 
         public static readonly bool EnableZmq
             = Utils.GetConfigValue<bool>("enableZeroMQ", "false");
         // hard-coded
