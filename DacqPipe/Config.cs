@@ -23,14 +23,6 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlDataRoot");
         public static readonly string HtmlDataRootDump
             = Utils.GetConfigValue<string>("htmlDataRootDump");
-        public static readonly string XmlDataRootNew
-            = XmlDataRoot == null ? null : (XmlDataRoot.TrimEnd('\\') + "\\" + "New");
-        public static readonly string XmlDataRootDumpNew
-            = XmlDataRootDump == null ? null : (XmlDataRootDump.TrimEnd('\\') + "\\" + "New");
-        public static readonly string HtmlDataRootNew
-            = HtmlDataRoot == null ? null : (HtmlDataRoot.TrimEnd('\\') + "\\" + "New");
-        public static readonly string HtmlDataRootDumpNew
-            = HtmlDataRootDump == null ? null : (HtmlDataRootDump.TrimEnd('\\') + "\\" + "New");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
         public static readonly bool EnableZmq

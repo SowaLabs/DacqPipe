@@ -171,9 +171,9 @@ namespace Dacq
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
-                DocumentWriterComponent dwc = new DocumentWriterComponent(/*connectionString=*/null, /*cmdTimeout=*/0, Config.XmlDataRootDumpNew, Config.HtmlDataRootDumpNew);
+                DocumentWriterComponent dwc = new DocumentWriterComponent(/*connectionString=*/null, /*cmdTimeout=*/0, Config.XmlDataRootDump, Config.HtmlDataRootDump);
                 UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
-                DocumentWriterComponent dw = new DocumentWriterComponent(Config.dbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRootNew, Config.HtmlDataRootNew);
+                DocumentWriterComponent dw = new DocumentWriterComponent(Config.dbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRoot, Config.HtmlDataRoot);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
                 SentenceSplitterComponent ssc = null;
                 EnglishTokenizerComponent tok = null;
