@@ -15,8 +15,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("dbConnectionString");
         public static readonly string DbConnectionStringDump
             = Utils.GetConfigValue<string>("dbConnectionStringDump");
-        public static readonly string SqlDbConnectionString
-            = Utils.GetConfigValue<string>("SqlDbConnectionString"); // *** inconsistent casing
+        //public static readonly string SqlDbConnectionString
+        //    = Utils.GetConfigValue<string>("SqlDbConnectionString"); // *** inconsistent casing
         public static readonly string SqlDbConnectionStringNew
             = Utils.GetConfigValue<string>("SqlDbConnectionStringNew"); // *** inconsistent casing
         public static readonly string ClientIp

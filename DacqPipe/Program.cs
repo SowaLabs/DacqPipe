@@ -171,7 +171,7 @@ namespace Dacq
                 dbConnection.Connect();
                 UrlTreeBoilerplateRemoverComponent.InitializeHistory(dbConnection);
                 dbConnection.Disconnect();
-                RssFeedComponent.DatabaseConnectionString = Config.SqlDbConnectionString;
+                RssFeedComponent.DatabaseConnectionString = Config.SqlDbConnectionStringNew;
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
@@ -221,11 +221,12 @@ namespace Dacq
                         dfLogger.Info("OnFilterDocument", "Document rejected: detectedCharRange not Basic Latin (id={0}).", docId);
                         return false;
                     }
-                    if (document.Features.GetFeatureValue("detectedLanguage") != Config.Language)
-                    {
-                        dfLogger.Info("OnFilterDocument", "Document rejected: detectedLanguage not {1} (id={0}).", docId, Config.Language);
-                        return false;
-                    }
+                    // *** We apparently don't have a Turkish language model
+                    //if (document.Features.GetFeatureValue("detectedLanguage") != Config.Language)
+                    //{
+                    //    dfLogger.Info("OnFilterDocument", "Document rejected: detectedLanguage not {1} but {2} (id={0}).", docId, Config.Language, document.Features.GetFeatureValue("detectedLanguage"));
+                    //    return false;
+                    //}
                     // remove exact duplicates
                     if (document.Features.GetFeatureValue("unseenContent") == "No")
                     {
@@ -296,10 +297,7 @@ namespace Dacq
                             rssComp.Name = siteId;
                             rssComp.TimeBetweenPolls = Config.SleepBetweenPolls;
                             rssComp.IncludeRssXml = true;
-                            if (Config.SqlDbConnectionString != null)
-                            {
-                                rssComp.Initialize(Config.SqlDbConnectionString);
-                            }
+                            rssComp.Initialize();
                             rssComp.IncludeRawData = true;
                             rssComp.Subscribe(lb);
                             dataReaders.Add(rssComp);

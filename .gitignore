@@ -4,6 +4,7 @@
 DacqPipe/bin/*
 DacqPipe/obj/*
 Data/*
+DataDump/*
 DataHtml/*
 RssScraper/RssScraper/bin/*
 RssScraper/RssScraper/obj/*
