@@ -171,11 +171,8 @@ namespace Dacq
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
-                DocumentCorpusWriterComponent dcw = new DocumentCorpusWriterComponent(Config.DbConnectionStringDump, /*xmlDataRoot=*/null);
                 DocumentWriterComponent dwc = new DocumentWriterComponent(/*connectionString=*/null, /*cmdTimeout=*/0, Config.XmlDataRootDumpNew, Config.HtmlDataRootDumpNew);
-                dcw.IsDumpWriter = true;
                 UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
-                DocumentCorpusWriterComponent cw = new DocumentCorpusWriterComponent(Config.DbConnectionString, Config.XmlDataRoot);
                 DocumentWriterComponent dw = new DocumentWriterComponent(Config.SqlDbConnectionStringNew, /*cmdTimeout=*/0, Config.XmlDataRootNew, Config.HtmlDataRootNew);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
                 SentenceSplitterComponent ssc = null;
@@ -232,7 +229,6 @@ namespace Dacq
                     return true;
                 });
                 ld.BlockSelector = "TextBlock/Content"; // due to problems with itar-tass.com
-                df.SubscribeDumpConsumer(dcw);
                 df.SubscribeDumpConsumer(dwc);
 
                 lb.Subscribe(htc);
@@ -246,17 +242,15 @@ namespace Dacq
                     ssc.Subscribe(tok);
                     tok.Subscribe(lem);
                     lem.Subscribe(pt);
-                    pt.Subscribe(cw);
                     pt.Subscribe(dw);
                     if (Config.EnableZmq) { pt.Subscribe(zmq); }
-                    dataConsumers.AddRange(new StreamDataConsumer[] { dcw, dwc, df, ld, htc, ssc, tok, pt, cw, dw, lem, bpr });
+                    dataConsumers.AddRange(new StreamDataConsumer[] { dwc, df, ld, htc, ssc, tok, pt, dw, lem, bpr });
                 }
                 else
                 {
-                    df.Subscribe(cw);
                     df.Subscribe(dw);
                     if (Config.EnableZmq) { df.Subscribe(zmq); }
-                    dataConsumers.AddRange(new StreamDataConsumer[] { dcw, dwc, df, ld, htc, cw, dw, bpr });
+                    dataConsumers.AddRange(new StreamDataConsumer[] { dwc, df, ld, htc, dw, bpr });
                 }
             }
             // initialize stream simulator
