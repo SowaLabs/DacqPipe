@@ -164,13 +164,9 @@ namespace Dacq
                 zmq = new ZeroMqEmitterComponent();
                 dataConsumers.Add(zmq);
             }
-            DatabaseConnection dbConnection = new DatabaseConnection();
-            if (Config.DbConnectionString != null)
+            if (Config.SqlDbConnectionStringNew != null)
             {
-                dbConnection.ConnectionString = Config.DbConnectionString;
-                dbConnection.Connect();
-                UrlTreeBoilerplateRemoverComponent.InitializeHistory(dbConnection);
-                dbConnection.Disconnect();
+                UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.SqlDbConnectionStringNew);
                 RssFeedComponent.DatabaseConnectionString = Config.SqlDbConnectionStringNew;
             }
             for (int i = 0; i < Config.NumPipes; i++)
@@ -178,7 +174,7 @@ namespace Dacq
                 DocumentCorpusWriterComponent dcw = new DocumentCorpusWriterComponent(Config.DbConnectionStringDump, /*xmlDataRoot=*/null);
                 DocumentWriterComponent dwc = new DocumentWriterComponent(/*connectionString=*/null, /*cmdTimeout=*/0, Config.XmlDataRootDumpNew, Config.HtmlDataRootDumpNew);
                 dcw.IsDumpWriter = true;
-                UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent(Config.DbConnectionString);
+                UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
                 DocumentCorpusWriterComponent cw = new DocumentCorpusWriterComponent(Config.DbConnectionString, Config.XmlDataRoot);
                 DocumentWriterComponent dw = new DocumentWriterComponent(Config.SqlDbConnectionStringNew, /*cmdTimeout=*/0, Config.XmlDataRootNew, Config.HtmlDataRootNew);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
