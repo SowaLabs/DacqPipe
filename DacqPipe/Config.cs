@@ -11,12 +11,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("dataSourcesFileName");
         public static readonly string WebSiteId
             = Utils.GetConfigValue<string>("webSiteId", "dacq");
-        public static readonly string DbConnectionString
-            = Utils.GetConfigValue<string>("dbConnectionString");
-        public static readonly string DbConnectionStringDump
-            = Utils.GetConfigValue<string>("dbConnectionStringDump");
-        public static readonly string SqlDbConnectionStringNew
-            = Utils.GetConfigValue<string>("sqlDbConnectionStringNew"); 
+        public static readonly string dbConnectionString
+            = Utils.GetConfigValue<string>("dbConnectionString"); 
         public static readonly string ClientIp
             = Utils.GetConfigValue<string>("clientIp");
         public static readonly string XmlDataRoot

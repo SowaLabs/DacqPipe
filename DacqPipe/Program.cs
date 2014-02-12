@@ -164,16 +164,16 @@ namespace Dacq
                 zmq = new ZeroMqEmitterComponent();
                 dataConsumers.Add(zmq);
             }
-            if (Config.SqlDbConnectionStringNew != null)
+            if (Config.dbConnectionString != null)
             {
-                UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.SqlDbConnectionStringNew);
-                RssFeedComponent.DatabaseConnectionString = Config.SqlDbConnectionStringNew;
+                UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.dbConnectionString);
+                RssFeedComponent.DatabaseConnectionString = Config.dbConnectionString;
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
                 DocumentWriterComponent dwc = new DocumentWriterComponent(/*connectionString=*/null, /*cmdTimeout=*/0, Config.XmlDataRootDumpNew, Config.HtmlDataRootDumpNew);
                 UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
-                DocumentWriterComponent dw = new DocumentWriterComponent(Config.SqlDbConnectionStringNew, /*cmdTimeout=*/0, Config.XmlDataRootNew, Config.HtmlDataRootNew);
+                DocumentWriterComponent dw = new DocumentWriterComponent(Config.dbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRootNew, Config.HtmlDataRootNew);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
                 SentenceSplitterComponent ssc = null;
                 EnglishTokenizerComponent tok = null;
