@@ -272,6 +272,7 @@ namespace Dacq
                             if (sites.Contains(siteId)) { throw new Exception(string.Format("Duplicated site identifier ({0}).", siteId)); }
                             sites.Add(siteId);
                             rssComp = new RssFeedComponent(siteId);
+                            if (Config.Language != "") { rssComp.RssXmlCodePageDetectorLanguage = (Language)Enum.Parse(typeof(Language), Config.Language); }
                             rssComp.MaxDocsPerCorpus = Convert.ToInt32(Utils.GetConfigValue("MaxDocsPerCorpus", "50"));
                             rssComp.RandomDelayAtStart = new ArrayList<string>("yes,on,true,1,y".Split(','))
                                 .Contains(Utils.GetConfigValue("RandomDelayAtStart", "true").ToLower());
