@@ -208,12 +208,11 @@ namespace Dacq
                         dfLogger.Info("OnFilterDocument", "Document rejected: detectedCharRange not Basic Latin (id={0}).", docId);
                         return false;
                     }
-                    // *** We apparently don't have a Turkish language model
-                    //if (document.Features.GetFeatureValue("detectedLanguage") != Config.Language)
-                    //{
-                    //    dfLogger.Info("OnFilterDocument", "Document rejected: detectedLanguage not {1} but {2} (id={0}).", docId, Config.Language, document.Features.GetFeatureValue("detectedLanguage"));
-                    //    return false;
-                    //}
+                    if (document.Features.GetFeatureValue("detectedLanguage") != Config.Language)
+                    {
+                        dfLogger.Info("OnFilterDocument", "Document rejected: detectedLanguage not {1} but {2} (id={0}).", docId, Config.Language, document.Features.GetFeatureValue("detectedLanguage"));
+                        return false;
+                    }
                     // remove exact duplicates
                     if (document.Features.GetFeatureValue("unseenContent") == "No")
                     {
