@@ -5,3 +5,5 @@ rmdir /s /q Data
 mkdir Data
 rmdir /s /q DataDump
 mkdir DataDump
+rmdir /s /q ViewHtml
+mkdir ViewHtml

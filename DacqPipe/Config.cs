@@ -23,6 +23,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlDataRoot");
         public static readonly string HtmlDataRootDump
             = Utils.GetConfigValue<string>("htmlDataRootDump");
+        public static readonly string HtmlViewRoot
+            = Utils.GetConfigValue<string>("htmlViewRoot");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
         // hard-coded

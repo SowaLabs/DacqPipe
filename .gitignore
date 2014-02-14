@@ -6,6 +6,7 @@ DacqPipe/obj/*
 Data/*
 DataDump/*
 DataHtml/*
+ViewHtml/*
 RssScraper/RssScraper/bin/*
 RssScraper/RssScraper/obj/*
 log.txt
