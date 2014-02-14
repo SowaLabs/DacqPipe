@@ -169,6 +169,7 @@ namespace Dacq
                 UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
                 DocumentWriterComponent dw = new DocumentWriterComponent(Config.dbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRoot, Config.HtmlDataRoot, Config.HtmlViewRoot);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
+                htc.SetAdditionalSkipTags(Config.HtmlTokenizer_AdditionalSkipTags);
                 SentenceSplitterComponent ssc = null;
                 EnglishTokenizerComponent tok = null;
                 EnglishLemmatizerComponent lem = null;

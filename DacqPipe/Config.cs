@@ -4,7 +4,7 @@ namespace Dacq
 {
     public static class Config
     {
-        // user-configurable
+        // general
         public static readonly string LogFileName
             = Utils.GetConfigValue<string>("logFileName");
         public static readonly string DataSourcesFileName
@@ -27,10 +27,13 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlViewRoot");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
-        // hard-coded
+        // TODO: make configurable
         public static readonly int NumPipes
             = 8;
         public static readonly int SleepBetweenPolls
             = 15 * 60000;
+        // component-specific
+        public static readonly string[] HtmlTokenizer_AdditionalSkipTags
+            = Utils.GetConfigValue<string>("HtmlTokenizer_AdditionalSkipTags", "").Split(',');
     }
 }
