@@ -24,7 +24,7 @@ namespace UrlAnalyzer
             Dictionary<string, Dictionary<string, Set<string>>> domainData
                 = new Dictionary<string, Dictionary<string, Set<string>>>();
 
-            foreach (string fileName in Directory.GetFiles(@"C:\Work\DacqPipe\Data", "*.xml.gz", SearchOption.AllDirectories))
+            foreach (string fileName in Directory.GetFiles(Utils.GetConfigValue("DataFolder", ".").TrimEnd('\\'), "*.xml.gz", SearchOption.AllDirectories))
             {
                 //Console.WriteLine(fileName);
                 Document doc = new Document("", "");
@@ -55,10 +55,10 @@ namespace UrlAnalyzer
                 }
             }
 
-            Set<string> paramShitList 
-                = new Set<string>("utm_campaign,feedName,mod,rss_id,comment,commentid,partner".Split(','));
+            Set<string> paramShitList
+                = new Set<string>(Utils.GetConfigValue("ExcludeUrlArgs", "utm_campaign,feedName,mod,rss_id,comment,commentid,partner").Split(','));
 
-            StreamWriter w = new StreamWriter(@"C:\Users\Administrator\Desktop\reportDomains.txt");
+            StreamWriter w = new StreamWriter(Utils.GetConfigValue("OutputFileName", "reportDomains.txt"));
 
             foreach (KeyValuePair<string, Dictionary<string, Set<string>>> item in domainData)
             {
