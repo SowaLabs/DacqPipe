@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using Latino;
 using Latino.Workflows.TextMining;
+using System.Data.SqlClient;
 
 namespace UrlAnalyzer
 {
@@ -24,34 +25,48 @@ namespace UrlAnalyzer
             Dictionary<string, Dictionary<string, Set<string>>> domainData
                 = new Dictionary<string, Dictionary<string, Set<string>>>();
 
-            foreach (string fileName in Directory.GetFiles(Utils.GetConfigValue("DataFolder", ".").TrimEnd('\\'), "*.xml.gz", SearchOption.AllDirectories))
+            using (SqlConnection connection = new SqlConnection(Utils.GetConfigValue("DbConnectionString")))
             {
-                //Console.WriteLine(fileName);
-                Document doc = new Document("", "");
-                doc.ReadXmlCompressed(fileName);
-                Console.WriteLine(doc.Name);
-                string url = doc.Features.GetFeatureValue("responseUrl");
-                //Console.WriteLine(url);
-                string left;
-                ArrayList<string> path;
-                ArrayList<KeyDat<string, string>> qParsed;
-                ParseUrl(url, out left, out path, out qParsed);
-                string urlKey = UrlAsString(left, path, qParsed, new Set<string>());
-                urlCount.Add(urlKey);
-                domainCount.Add(left);
-                if (!domainToUrlMapping.ContainsKey(left)) { domainToUrlMapping.Add(left, new Set<string>()); }
-                domainToUrlMapping[left].Add(urlKey);
-                if (!data.ContainsKey(urlKey)) { data.Add(urlKey, new Dictionary<string, Set<string>>()); }
-                if (!domainData.ContainsKey(left)) { domainData.Add(left, new Dictionary<string, Set<string>>()); }
-                Dictionary<string, Set<string>> urlInfo = data[urlKey];
-                Dictionary<string, Set<string>> domainInfo = domainData[left];
-                foreach (KeyDat<string, string> item in qParsed)
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(@"SELECT name, responseUrl from Documents", connection))
                 {
-                    //Console.WriteLine(item.Key + "=" + item.Dat);
-                    if (!urlInfo.ContainsKey(item.Key)) { urlInfo.Add(item.Key, new Set<string>()); }
-                    urlInfo[item.Key].Add(item.Dat);
-                    if (!domainInfo.ContainsKey(item.Key)) { domainInfo.Add(item.Key, new Set<string>()); }
-                    domainInfo[item.Key].Add(item.Dat);
+                    cmd.CommandTimeout = 0;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //foreach (string fileName in Directory.GetFiles(Utils.GetConfigValue("DataFolder", ".").TrimEnd('\\'), "*.xml.gz", SearchOption.AllDirectories))
+                        while (reader.Read())
+                        {
+                            //Console.WriteLine(fileName);
+                            //Document doc = new Document("", "");
+                            //doc.ReadXmlCompressed(fileName);
+                            //Console.WriteLine(doc.Name);
+                            Console.WriteLine(reader.GetValue<string>("name"));
+                            //string url = doc.Features.GetFeatureValue("responseUrl");
+                            string url = reader.GetValue<string>("responseUrl");
+                            //Console.WriteLine(url);
+                            string left;
+                            ArrayList<string> path;
+                            ArrayList<KeyDat<string, string>> qParsed;
+                            ParseUrl(url, out left, out path, out qParsed);
+                            string urlKey = UrlAsString(left, path, qParsed, new Set<string>());
+                            urlCount.Add(urlKey);
+                            domainCount.Add(left);
+                            if (!domainToUrlMapping.ContainsKey(left)) { domainToUrlMapping.Add(left, new Set<string>()); }
+                            domainToUrlMapping[left].Add(urlKey);
+                            if (!data.ContainsKey(urlKey)) { data.Add(urlKey, new Dictionary<string, Set<string>>()); }
+                            if (!domainData.ContainsKey(left)) { domainData.Add(left, new Dictionary<string, Set<string>>()); }
+                            Dictionary<string, Set<string>> urlInfo = data[urlKey];
+                            Dictionary<string, Set<string>> domainInfo = domainData[left];
+                            foreach (KeyDat<string, string> item in qParsed)
+                            {
+                                //Console.WriteLine(item.Key + "=" + item.Dat);
+                                if (!urlInfo.ContainsKey(item.Key)) { urlInfo.Add(item.Key, new Set<string>()); }
+                                urlInfo[item.Key].Add(item.Dat);
+                                if (!domainInfo.ContainsKey(item.Key)) { domainInfo.Add(item.Key, new Set<string>()); }
+                                domainInfo[item.Key].Add(item.Dat);
+                            }
+                        }
+                    }
                 }
             }
 
