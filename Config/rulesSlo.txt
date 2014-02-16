@@ -1,0 +1,5 @@
+http://web\.vecer\.com	id
+http://www\.politikis\.si	p
+http://www\.racunalniske-novice\.com	null
+http://www\.poslovni-bazar\.si	article
+http://mix\.vecer\.com	id
