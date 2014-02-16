@@ -32,8 +32,5 @@ namespace Dacq
             = 8;
         public static readonly int SleepBetweenPolls
             = 15 * 60000;
-        // component-specific
-        public static readonly string[] HtmlTokenizer_AdditionalSkipTags
-            = Utils.GetConfigValue<string>("HtmlTokenizer_AdditionalSkipTags", "").Split(',');
     }
 }
