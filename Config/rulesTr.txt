@@ -1,0 +1,3 @@
+http://www\.posta\.com\.tr	ArticleID
+http://www\.takvim\.com\.tr	burc
+http://www\.milliyet\.com\.tr	ArticleID
