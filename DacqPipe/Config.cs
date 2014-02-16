@@ -17,12 +17,12 @@ namespace Dacq
             = Utils.GetConfigValue<string>("clientIp");
         public static readonly string XmlDataRoot
             = Utils.GetConfigValue<string>("xmlDataRoot");
-        public static readonly string XmlDataRootDump
-            = Utils.GetConfigValue<string>("xmlDataRootDump");
+        public static readonly string XmlDataDumpRoot
+            = Utils.GetConfigValue<string>("xmlDataDumpRoot");
         public static readonly string HtmlDataRoot
             = Utils.GetConfigValue<string>("htmlDataRoot");
-        public static readonly string HtmlDataRootDump
-            = Utils.GetConfigValue<string>("htmlDataRootDump");
+        public static readonly string HtmlDataDumpRoot
+            = Utils.GetConfigValue<string>("htmlDataDumpRoot");
         public static readonly string HtmlViewRoot
             = Utils.GetConfigValue<string>("htmlViewRoot");
         public static readonly string Language
