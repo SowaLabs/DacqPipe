@@ -49,13 +49,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Latino\LatinoWorkflows\LatinoWorkflows.csproj">
+    <ProjectReference Include="..\..\LatinoWorkflows\LatinoWorkflows.csproj">
       <Project>{EDE88AFF-1053-4175-B91C-4E683426706A}</Project>
       <Name>LatinoWorkflows</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Latino\Latino\Latino.csproj">
-      <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
+    <ProjectReference Include="..\..\Latino\Latino.csproj">
+      <Project>{5B86AAD5-3FEA-487C-A518-4F846AF09E18}</Project>
       <Name>Latino</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SemWeb\SemWeb.csproj">
+      <Project>{4570B82E-34F5-4630-A44A-A1E3D92FD18C}</Project>
+      <Name>SemWeb</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

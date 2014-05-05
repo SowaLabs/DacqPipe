@@ -7,6 +7,8 @@
  *  Created: Feb-2011
  *
  *  Author:  Miha Grcar
+ *  
+ *  License: MIT (http://opensource.org/licenses/MIT)
  *
  ***************************************************************************/
 
@@ -24,7 +26,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using Latino;
 using Latino.Web;
-using Latino.Persistance;
 using Latino.TextMining;
 using Latino.Workflows;
 using Latino.Workflows.TextMining;
