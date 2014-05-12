@@ -246,11 +246,10 @@ namespace Dacq
                 }
             }
             // initialize stream simulator
-            string offlineSource = ConfigurationManager.AppSettings["offlineSource"];
-            if (offlineSource != null) 
+            if (Config.OfflineSource != null) 
             {
-                DocumentStreamReaderComponent dsr = new DocumentStreamReaderComponent(offlineSource);
-                dsr.Name = offlineSource;
+                DocumentStreamReaderComponent dsr = new DocumentStreamReaderComponent(Config.OfflineSource);
+                dsr.Name = Config.OfflineSource;
                 dataReaders.Add(dsr);
                 dsr.Subscribe(lb);
             }

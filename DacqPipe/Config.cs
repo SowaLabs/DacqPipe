@@ -1,10 +1,10 @@
-﻿using Latino;
+﻿using System;
+using Latino;
 
 namespace Dacq
 {
     public static class Config
     {
-        // general
         public static readonly string LogFileName
             = Utils.GetConfigValue<string>("logFileName");
         public static readonly string DataSourcesFileName
@@ -27,10 +27,11 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlViewRoot");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
-        // TODO: make configurable
+        public static readonly string OfflineSource
+            = Utils.GetConfigValue<string>("offlineSource"); 
         public static readonly int NumPipes
-            = 8;
+            = Utils.GetConfigValue<int>("numPipes", "8");
         public static readonly int SleepBetweenPolls
-            = 15 * 60000;
+            = (int)Utils.GetConfigValue<TimeSpan>("sleepBetweenPolls", "00:15:00").TotalMilliseconds;
     }
 }
