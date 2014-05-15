@@ -16,7 +16,7 @@ namespace Dacq
         public static readonly string HtmlDataDumpRoot
             = Utils.GetConfigValue<string>("htmlDataDumpRoot");
         public static readonly string HtmlViewRoot
-            = Utils.GetConfigValue<string>("htmlViewRoot", "Previews");
+            = Utils.GetConfigValue<string>("htmlViewRoot");
         public static readonly string DataSourcesFileName
             = Utils.GetConfigValue<string>("dataSourcesFileName", "RssSources.txt");
         public static readonly string DbConnectionString
