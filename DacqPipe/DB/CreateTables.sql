@@ -50,6 +50,15 @@ GO
 SET ANSI_PADDING OFF
 GO
 
+CREATE NONCLUSTERED INDEX [IX_Documents_domainName]
+ON [dbo].[Documents] ([domainName])
+INCLUDE ([guid],[responseUrl],[urlKey],[time],[rev])
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Documents_urlKey_time_rev]
+ON [dbo].[Documents] ([urlKey], [time] DESC, [rev] DESC)
+GO
+
 /****** Object:  Table [dbo].[TextBlocks] ******/
 SET ANSI_NULLS ON
 GO
@@ -69,4 +78,9 @@ CREATE TABLE [dbo].[TextBlocks](
 GO
 
 SET ANSI_PADDING OFF
+GO
+
+CREATE NONCLUSTERED INDEX [IX_TextBlocks_docGuid]
+ON [dbo].[TextBlocks] ([docGuid])
+--INCLUDE ([hashCodes])
 GO
