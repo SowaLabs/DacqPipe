@@ -159,16 +159,16 @@ namespace Dacq
             PassOnComponent lb = new PassOnComponent(); // data load balancer
             lb.DispatchPolicy = DispatchPolicy.BalanceLoadMax;
             dataConsumers.Add(lb);
-            if (Config.dbConnectionString != null)
+            if (Config.DbConnectionString != null)
             {
-                UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.dbConnectionString);
-                RssFeedComponent.DatabaseConnectionString = Config.dbConnectionString;
+                UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.DbConnectionString);
+                RssFeedComponent.DatabaseConnectionString = Config.DbConnectionString;
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
                 DocumentWriterComponent dwc = new DocumentWriterComponent(/*connectionString=*/null, /*cmdTimeout=*/0, Config.XmlDataDumpRoot, Config.HtmlDataDumpRoot, null);
                 UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
-                DocumentWriterComponent dw = new DocumentWriterComponent(Config.dbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRoot, Config.HtmlDataRoot, Config.HtmlViewRoot);
+                DocumentWriterComponent dw = new DocumentWriterComponent(Config.DbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRoot, Config.HtmlDataRoot, Config.HtmlViewRoot);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
                 SentenceSplitterComponent ssc = null;
                 EnglishTokenizerComponent tok = null;
@@ -273,9 +273,8 @@ namespace Dacq
                             sites.Add(siteId);
                             rssComp = new RssFeedComponent(siteId);
                             if (Config.Language != "") { rssComp.RssXmlCodePageDetectorLanguage = (Language)Enum.Parse(typeof(Language), Config.Language); }
-                            rssComp.MaxDocsPerCorpus = Convert.ToInt32(Utils.GetConfigValue("MaxDocsPerCorpus", "50"));
-                            rssComp.RandomDelayAtStart = new ArrayList<string>("yes,on,true,1,y".Split(','))
-                                .Contains(Utils.GetConfigValue("RandomDelayAtStart", "true").ToLower());
+                            rssComp.MaxDocsPerCorpus = Config.MaxDocsPerCorpus;
+                            rssComp.RandomDelayAtStart = Config.RandomDelayAtStart;
                             rssComp.Name = siteId;
                             rssComp.TimeBetweenPolls = Config.SleepBetweenPolls;
                             rssComp.IncludeRssXml = true;
