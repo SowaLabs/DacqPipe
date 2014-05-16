@@ -72,7 +72,7 @@ GO
 CREATE TABLE [dbo].[TextBlocks](
 	[docGuid] [uniqueidentifier] NOT NULL,
 	[hashCodes] [varbinary](max) NOT NULL,
-	[hashCodesBase64] [text] NOT NULL
+--	[hashCodesBase64] [text] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
