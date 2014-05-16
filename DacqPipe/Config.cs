@@ -17,10 +17,14 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlDataDumpRoot");
         public static readonly string HtmlViewRoot
             = Utils.GetConfigValue<string>("htmlViewRoot");
+        public static readonly string HtmlDumpViewRoot
+            = Utils.GetConfigValue<string>("htmlDumpViewRoot");
         public static readonly string DataSourcesFileName
             = Utils.GetConfigValue<string>("dataSourcesFileName", "RssSources.txt");
         public static readonly string DbConnectionString
             = Utils.GetConfigValue<string>("dbConnectionString", "Server=(local);Database=DacqPipe;Trusted_Connection=Yes");
+        public static readonly string DbConnectionStringDump
+            = Utils.GetConfigValue<string>("dbConnectionStringDump");
         public static readonly int MaxDocsPerCorpus
             = Utils.GetConfigValue<int>("maxDocsPerCorpus", "50");
         public static readonly bool RandomDelayAtStart
