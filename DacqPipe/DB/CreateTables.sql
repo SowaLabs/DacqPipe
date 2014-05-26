@@ -8,15 +8,6 @@ DROP TABLE [dbo].[TextBlocks]
 GO
 
 /****** Object:  Table [dbo].[Documents] ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-SET ANSI_PADDING ON
-GO
-
 CREATE TABLE [dbo].[Documents](
 	[guid] [uniqueidentifier] NULL,
 	[hash] [uniqueidentifier] NULL,
@@ -42,12 +33,9 @@ CREATE TABLE [dbo].[Documents](
 	CONSTRAINT [UQ_Documents_id] UNIQUE NONCLUSTERED 
 	(
 		[guid] ASC
-	) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = ON, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = ON, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-GO
-
-SET ANSI_PADDING OFF
 GO
 
 CREATE NONCLUSTERED INDEX [IX_Documents_domainName]
@@ -60,24 +48,12 @@ ON [dbo].[Documents] ([urlKey], [time] DESC, [rev] DESC)
 GO
 
 /****** Object:  Table [dbo].[TextBlocks] ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-SET ANSI_PADDING ON
-GO
-
 CREATE TABLE [dbo].[TextBlocks](
 	[docGuid] [uniqueidentifier] NOT NULL,
 	[hashCodes] [varbinary](max) NOT NULL,
 --	[hashCodesBase64] [text] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-GO
-
-SET ANSI_PADDING OFF
 GO
 
 CREATE NONCLUSTERED INDEX [IX_TextBlocks_docGuid]
