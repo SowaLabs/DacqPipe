@@ -1,6 +1,7 @@
 *.suo
 *.bak
 *.old
+*.user
 bin/
 obj/
 Data/
