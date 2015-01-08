@@ -51,12 +51,10 @@ GO
 CREATE TABLE [dbo].[TextBlocks](
 	[docGuid] [uniqueidentifier] NOT NULL,
 	[hashCodes] [varbinary](max) NOT NULL,
---	[hashCodesBase64] [text] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
 
 CREATE NONCLUSTERED INDEX [IX_TextBlocks_docGuid]
 ON [dbo].[TextBlocks] ([docGuid])
---INCLUDE ([hashCodes])
 GO
