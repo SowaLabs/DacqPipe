@@ -266,3 +266,14 @@ http://www.n-tv.de/software/rss
 http://www.n-tv.de/rss
 http://www.n-tv.de/wirtschaft/rss
 #http://www.n-tv.de/feeds
+
+Site: focus
+# URL: http://www.focus.de
+# P # RSS list: http://www.focus.de/service/rss/immer-top-informiert-rss-auf-focus-online_aid_13713.html
+http://rss.focus.de/fol/XML/rss_folnews.xml
+http://rss.focus.de/fol/XML/rss_folnews_eilmeldungen.xml
+#http://www.focus.de/service/rss/immer-top-informiert-rss-auf-focus-online_aid_13713.html
+#http://m.focus.de/service/rss/immer-top-informiert-rss-auf-focus-online_aid_13713.html
+#http://www.focus.de/service/rss/
+#http://www.focus.de/service/rss/immer-top-informiert-rss-auf-focus-online_aid_13713.html?fbc=googleplus-shares
+#http://www.focus.de/schlagwoerter/themen/r/rss/
