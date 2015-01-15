@@ -277,3 +277,42 @@ http://rss.focus.de/fol/XML/rss_folnews_eilmeldungen.xml
 #http://www.focus.de/service/rss/
 #http://www.focus.de/service/rss/immer-top-informiert-rss-auf-focus-online_aid_13713.html?fbc=googleplus-shares
 #http://www.focus.de/schlagwoerter/themen/r/rss/
+
+Site: schmidtutz.wordpress.com
+https://schmidtutz.wordpress.com/feed/
+
+Site: blog.zeit.de
+http://blog.zeit.de/herdentrieb/feed
+
+Site: aktientagebuchblog.de
+http://www.aktientagebuchblog.de/feed
+
+Site: fils.at
+http://www.fils.at/feed/
+
+Site: aktien-strategien.blogspot.com
+http://aktien-strategien.blogspot.com/feeds/posts/default?alt=rss
+
+Site: aktien-blog.de
+http://www.aktien-blog.de/rss.xml
+
+Site: aktien-blog.com
+http://aktien-blog.com/feed
+
+Site: aktien-tipps.com
+http://aktien-tipps.com/feed/
+
+Site: aktien-blog.over-blog.com
+http://aktien-blog.over-blog.com/rss-articles.xml
+
+Site: aktien-tagebuch.de
+http://www.aktien-tagebuch.de/feed/
+
+Site: simple-value-investing.de
+http://feeds.feedburner.com/investment-analyse
+
+Site: start-trading.de
+http://www.start-trading.de/feed/
+
+Site: goldseitenblog.com
+http://www.goldseitenblog.com/goldseitenblogs.php?tempskin=_rss2
