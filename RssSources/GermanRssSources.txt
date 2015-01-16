@@ -316,3 +316,59 @@ http://www.start-trading.de/feed/
 
 Site: goldseitenblog.com
 http://www.goldseitenblog.com/goldseitenblogs.php?tempskin=_rss2
+
+Site: valueblog.de
+http://www.valueblog.de/feed
+
+Site: blog.boersennews.de
+http://blog.boersennews.de/feed
+
+Site: mastertraders.de
+http://www.mastertraders.de/feed/der-mastertrader/
+http://www.mastertraders.de/feed/highperformance-aktien/
+http://www.mastertraders.de/feed/der-high-leverage-trader/
+http://www.mastertraders.de/feed/nebenwerte-investor/
+
+Site: blog.wiwo.de
+http://blog.wiwo.de/hankes-boersen-bibliothek/feed/
+
+Site: boersenblog.finanzen.net
+http://www.finanzen.net/rss/news
+http://www.finanzen.net/rss/ranalysen
+http://www.finanzen.net/rss/eurams
+
+Site: aktien-kaufen-fuer-anfaenger.de
+http://www.aktien-kaufen-fuer-anfaenger.de/feed/
+
+Site: torstenmaue.com
+http://xml.feedcat.net/823435
+
+Site: bluemelstaunt.com
+http://www.bluemelstaunt.com/feeds/posts/default?alt=rss
+
+Site: jotrader.bplaced.net
+http://jotrader.bplaced.net/wp/?feed=rss2
+
+Site: nextturtle.blogspot.de
+http://feeds.feedburner.com/blogspot/LNwel?format=xml
+
+Site: geld-kompakt.de
+http://www.geld-kompakt.de/feed/
+
+Site: direktbankvergleich.de
+http://www.direktbankvergleich.de/feed/news.php
+
+Site: finblog.de
+http://feeds.feedburner.com/finblogde
+
+Site: conserio.at
+http://feeds.feedburner.com/conseriofeed?format=xml
+
+Site: blogfinanzen.de
+http://feeds.feedburner.com/blogfinanzen?format=xml
+
+Site: be24.at
+http://www.be24.at/rss
+
+Site: financeblog.ch
+http://feeds2.feedburner.com/financeblogch
