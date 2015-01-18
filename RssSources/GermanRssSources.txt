@@ -373,6 +373,58 @@ http://www.be24.at/rss
 Site: financeblog.ch
 http://feeds2.feedburner.com/financeblogch
 
+Site: blog.tagesanzeiger.ch
+# P # RSS list: http://www.tagesanzeiger.ch/dienste/RSS/story/21856776
+http://www.tagesanzeiger.ch/rss_ticker.html
+#http://www.tagesanzeiger.ch/dienste/RSS/story/21856776
+#http://www.tagesanzeiger.ch//dienste/RSS/story/21856776
+http://www.tagesanzeiger.ch/rss.html
+http://www.tagesanzeiger.ch/schweiz/rss.html
+http://www.tagesanzeiger.ch/zuerich/rss.html
+http://www.tagesanzeiger.ch/ausland/rss.html
+http://www.tagesanzeiger.ch/wirtschaft/rss.html
+http://www.tagesanzeiger.ch/sport/rss.html
+http://www.tagesanzeiger.ch/kultur/rss.html
+http://www.tagesanzeiger.ch/panorama/rss.html
+http://www.tagesanzeiger.ch/leben/rss.html
+http://www.tagesanzeiger.ch/auto/rss.html
+http://www.tagesanzeiger.ch/digital/rss.html
+http://www.tagesanzeiger.ch/blogs/rss.html
+http://www.tagesanzeiger.ch/dienste/RSS/story/rss.html
+
+Site: finanztrader.com
+http://www.finanztrader.com/feed/
+
+Site: timschaefermedia.com
+http://feeds.feedburner.com/TimSchaeferMedia?format=xml
+
+Site: geldanlage-finanz-blog.com
+http://geldanlage-finanz-blog.com/feed/
+
+Site: dieboersenblogger.de
+http://feeds.feedburner.com/DieBoersenblogger?format=xml
+
+Site: essenceoffinance.com
+http://essenceoffinance.com/de/feed/
+
+Site: der-bank-blog.de
+http://www.der-bank-blog.de/feed/
+
+Site: diewunderbareweltderwirtschaft.de
+http://feeds2.feedburner.com/EgghatsBlog
+
+Site: everling.de
+http://www.everling.de/?feed=rss2
+
+Site: finsider.de
+http://www.finsider.de/feed/
+
+Site: freilich.ch
+http://www.freilich.ch/blog/?feed=rss2
+
+Site: acemaxx-analytics-dispinar.blogspot.de
+http://acemaxx-analytics-dispinar.blogspot.com/feeds/posts/default?alt=rss
+
 Site: yahoo.nachrichten
 # P # RSS list: https://de.nachrichten.yahoo.com/sitemap/
 https://de.nachrichten.yahoo.com/rss/
