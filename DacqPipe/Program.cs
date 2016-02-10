@@ -161,8 +161,11 @@ namespace Dacq
             dataConsumers.Add(lb);
             if (Config.DbConnectionString != null)
             {
-                UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.DbConnectionString);
-                RssFeedComponent.DatabaseConnectionString = Config.DbConnectionString;
+                if (!Config.SkipBoilerplateHistoryInit)
+                {
+                    UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.DbConnectionString);
+                    RssFeedComponent.DatabaseConnectionString = Config.DbConnectionString;
+                }
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {

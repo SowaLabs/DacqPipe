@@ -32,6 +32,8 @@ namespace Dacq
             = Utils.GetConfigValue<int>("maxDocsPerCorpus", "50");
         public static readonly bool RandomDelayAtStart
             = Utils.GetConfigValue<bool>("randomDelayAtStart", "no");
+        public static readonly bool SkipBoilerplateHistoryInit
+            = Utils.GetConfigValue<bool>("SkipBoilerplateHistoryInit", "yes");
         // undocumented (for debugging) 
         public static readonly string HtmlDumpViewRoot
             = Utils.GetConfigValue<string>("htmlDumpViewRoot");
