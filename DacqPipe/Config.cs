@@ -23,6 +23,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("dbConnectionString", "Server=(local);Database=DacqPipe;Trusted_Connection=Yes");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
+        public static readonly bool OmitNLP
+            = Utils.GetConfigValue<bool>("OmitNLP", "no"); 
         public static readonly int NumPipes
             = Utils.GetConfigValue<int>("numPipes", "2");
         public static readonly int SleepBetweenPolls

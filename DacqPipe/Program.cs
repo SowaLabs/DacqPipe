@@ -164,8 +164,8 @@ namespace Dacq
                 if (!Config.SkipBoilerplateHistoryInit)
                 {
                     UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.DbConnectionString);
-                    RssFeedComponent.DatabaseConnectionString = Config.DbConnectionString;
                 }
+                RssFeedComponent.DatabaseConnectionString = Config.DbConnectionString;
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
@@ -233,7 +233,7 @@ namespace Dacq
                 bpr.Subscribe(ld);
                 ld.Subscribe(df);
 
-                if (Config.Language == "English")
+                if (Config.Language == "English" && !Config.OmitNLP)
                 {
                     df.Subscribe(ssc);
                     ssc.Subscribe(tok);
