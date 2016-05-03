@@ -30,7 +30,9 @@ namespace RssScraperConsole
             @"href=[""'](?<rssUrl>[^""']*\.xml)[""']",
             @"href=[""'](?<rssUrl>[^""']*\.rdf)[""']",
             @"href=[""'](?<rssUrl>[^""']*rss[^""']*)[""']",
-            @"href=[""'](?<rssUrl>[^""']*feed[^""']*)[""']"
+            @"href=[""'](?<rssUrl>[^""']*feed[^""']*)[""']",
+            @"type=""application/rss[^>]*?href=[""'](?<rssUrl>[^""']*)[""']",
+            @"href=[""'](?<rssUrl>[^""']*)[""'][^>]*?type=""application/rss"
             };
 
         // TODO: make configurable
@@ -110,7 +112,7 @@ namespace RssScraperConsole
             // read settings
             ArrayList<string> includeList = new ArrayList<string>();
             int i = 0;
-            foreach (char flag in Utils.GetConfigValue("IncludeRules", "yyyyy"))
+            foreach (char flag in Utils.GetConfigValue("IncludeRules", "yyyyyyy"))
             {
                 if (flag == 'y') { includeList.Add(mRegexList[i]); }
                 i++;
