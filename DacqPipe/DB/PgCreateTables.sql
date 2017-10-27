@@ -5,7 +5,7 @@
 -- Dumped from database version 9.6.5
 -- Dumped by pg_dump version 9.6.5
 
--- Started on 2017-10-26 13:28:30
+-- Started on 2017-10-27 11:20:45
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -25,7 +25,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2129 (class 0 OID 0)
+-- TOC entry 2130 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -85,14 +85,22 @@ CREATE TABLE "TextBlocks" (
 ALTER TABLE "TextBlocks" OWNER TO postgres;
 
 --
--- TOC entry 2005 (class 1259 OID 16759)
+-- TOC entry 2005 (class 1259 OID 46463)
+-- Name: IDX_siteId_time; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "IDX_siteId_time" ON "Documents" USING btree ("siteId", title DESC NULLS LAST);
+
+
+--
+-- TOC entry 2006 (class 1259 OID 16759)
 -- Name: UQ_guid; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "UQ_guid" ON "Documents" USING btree (guid);
 
 
--- Completed on 2017-10-26 13:28:30
+-- Completed on 2017-10-27 11:20:46
 
 --
 -- PostgreSQL database dump complete
