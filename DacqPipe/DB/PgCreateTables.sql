@@ -54,7 +54,7 @@ CREATE TABLE "Documents" (
     link character varying(400),
     "responseUrl" character varying(400),
     "urlKey" character varying(400),
-    "time" time without time zone,
+    "time" timestamp without time zone,
     "pubDate" character varying(100),
     "mimeType" character varying(80),
     "charSet" character varying(40),
