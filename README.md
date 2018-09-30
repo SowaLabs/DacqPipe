@@ -6,32 +6,32 @@ DacqPipe (Data Acqisition Pipeline) is a massive RSS data acquisition tool. It c
 Clone and Build
 ---------------
 
-1. Clone [DacqPipe](http://source.ijs.si/kt/dacqpipe.git) from the GIT repository into, for example, C:\Work\DacqPipe:
+1. Clone [DacqPipe](https://github.com/SowaLabs/DacqPipe.git) from the GIT repository into, for example, C:\Work\DacqPipe:
 
  ```
- git clone http://source.ijs.si/kt/dacqpipe.git C:\Work\DacqPipe
+ git clone https://github.com/SowaLabs/DacqPipe.git C:\Work\DacqPipe
  ```
 
 2. Clone the dependencies:
-    * Clone [LATINO](http://source.ijs.si/mgrcar/latino.git) into C:\Work\LATINO (see [the LATINO readme file](http://source.ijs.si/mgrcar/latino/blob/master/README.md) for more details):
+    * Clone [LATINO](https://github.com/LatinoLib/LATINO.git) into C:\Work\LATINO (see [the LATINO readme file](https://github.com/LatinoLib/LATINO/blob/master/README.md) for more details):
 
      ```
-     git clone http://source.ijs.si/mgrcar/latino.git C:\Work\LATINO
+     git clone https://github.com/LatinoLib/LATINO.git C:\Work\LATINO
      ```
-    * Clone [LATINO Workflows](http://source.ijs.si/kt/latino-workflows.git) into C:\Work\LatinoWorkflows:
+    * Clone [LATINO Workflows](https://github.com/SowaLabs/LATINO-Workflows.git) into C:\Work\LatinoWorkflows:
 
      ```
-     git clone http://source.ijs.si/kt/latino-workflows.git C:\Work\LatinoWorkflows
+     git clone https://github.com/SowaLabs/LATINO-Workflows.git C:\Work\LatinoWorkflows
      ```
-    * Clone [SemWeb](http://source.ijs.si/kt/semweb.git) into C:\Work\SemWeb:
+    * Clone [SemWeb](https://github.com/SowaLabs/SemWeb.git) into C:\Work\SemWeb:
 
      ```
-     git clone http://source.ijs.si/kt/semweb.git C:\Work\SemWeb
+     git clone https://github.com/SowaLabs/SemWeb.git C:\Work\SemWeb
      ```
-    * Clone [SharpNLP](http://source.ijs.si/kt/sharpnlp.git) into C:\Work\SharpNLP:
+    * Clone [SharpNLP](https://github.com/SowaLabs/SharpNLP.git) into C:\Work\SharpNLP:
 
      ```
-     git clone http://source.ijs.si/kt/sharpnlp.git C:\Work\SharpNLP
+     git clone https://github.com/SowaLabs/SharpNLP.git C:\Work\SharpNLP
      ```
 
 3. Open the solution file (C:\Work\DacqPipe\DacqPipe.sln) in Visual Studio. This solution file was created in Visual Studio 2008. If you are using a later version, VS will automatically upgrade it.
@@ -109,13 +109,13 @@ Configure and Run
      http://www.spiegel.de/schlagzeilen/tops/index.rss
      ```
 
-4. Create the database:
+4. Create the database: // TODO: Change this to Postgres
 
     1. Start SQL Server Management Studio.
 
     2. Create a new database.
 
-    3. Run the script [CreateTables.sql](http://source.ijs.si/kt/dacqpipe/blob/master/DacqPipe/DB/CreateTables.sql) (contained in C:\Work\DacqPipe\DacqPipe\DB) on the newly created database.
+    3. Run the script [PgCreateTables.sql](https://github.com/SowaLabs/DacqPipe/blob/master/DacqPipe/DB/PgCreateTables.sql) (contained in C:\Work\DacqPipe\DacqPipe\DB) on the newly created database.
 
     4. Make sure that the database connection string is set correctly in DacqPipe.exe.config.
 
@@ -148,16 +148,11 @@ You can configure the following advanced settings in DacqPipe.exe.config:
 |urlRulesFileName   |Points to the file containing URL normalization rules required for boilerplate removal (see below*).                        |Not set        |
 |urlBlacklistFileName|Points to the file specifying URLs from which the content should be rejected (see below**).                                |Not set        |
 
-\* TBD
+\* TODO
 
-** TBD
-
-Additional Notes
-----------------
-
-TBD
+** TODO
 
 License
 -------
 
-Most of DacqPipe is under [the MIT license](http://opensource.org/licenses/MIT). However, certain parts and/or dependencies fall under other licenses. See [LICENSE.txt](http://source.ijs.si/kt/dacqpipe/blob/master/LICENSE.txt) for more details.
+Most of DacqPipe is under [the MIT license](http://opensource.org/licenses/MIT). However, certain parts and/or dependencies fall under other licenses. See [LICENSE.txt](https://github.com/SowaLabs/DacqPipe/blob/master/LICENSE.txt) for more details.
