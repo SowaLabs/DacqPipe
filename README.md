@@ -148,7 +148,7 @@ You can configure the following advanced settings in DacqPipe.exe.config:
 |urlRulesFileName   |Points to the file containing URL normalization rules required for boilerplate removal (see below*).                        |Not set        |
 |urlBlacklistFileName|Points to the file specifying URLs from which the content should be rejected (see below**).                                |Not set        |
 
-\* Example of a rule-set file (the first part is the regex against a URL is matched, the second part is the URL query parameter that should be retained in order to correctly form a unique URL key):
+\* Example of a rule-set file (the first part of each line is a regex against which the URL is matched, the second part is the URL query parameter that should be retained in order to correctly form a unique URL key):
 
 ```
 http://www\.cbsnews\.com:80.*?/watch    id
