@@ -34,7 +34,7 @@ Clone and Build
      git clone https://github.com/SowaLabs/SharpNLP.git C:\Work\SharpNLP
      ```
 
-3. Open the solution file (C:\Work\DacqPipe\DacqPipe.sln) in Visual Studio. This solution file was created in Visual Studio 2008. If you are using a later version, VS will automatically upgrade it.
+3. Open the solution file (C:\Work\DacqPipe\DacqPipe.sln) in Visual Studio. 
 
 4. Build the solution.
 
@@ -109,9 +109,9 @@ Configure and Run
      http://www.spiegel.de/schlagzeilen/tops/index.rss
      ```
 
-4. Create the database: // TODO: Change this to Postgres
+4. Create the database: 
 
-    1. Start SQL Server Management Studio.
+    1. Start pgAdmin.
 
     2. Create a new database.
 
@@ -148,9 +148,61 @@ You can configure the following advanced settings in DacqPipe.exe.config:
 |urlRulesFileName   |Points to the file containing URL normalization rules required for boilerplate removal (see below*).                        |Not set        |
 |urlBlacklistFileName|Points to the file specifying URLs from which the content should be rejected (see below**).                                |Not set        |
 
-\* TODO
+\* Example of a rule-set file (the first part is the regex against a URL is matched, the second part is the URL query parameter that should be retained in order to correctly form a unique URL key):
 
-** TODO
+```
+http://www\.cbsnews\.com:80.*?/watch    id
+http://abcnews\.go\.com:80  id
+http://www\.boston\.com:80.*?/video bctid
+http://www\.marketwatch\.com:80.*?/story    Guid
+http://home\.nzcity\.co\.nz:80.*?/article\.aspx id
+http://www\.nzherald\.co\.nz:80.*?/article\.cfm objectid
+http://www\.politicsweb\.co\.za:80  oid
+http://espn\.go\.com:80 id
+http://members\.morningstar\.com:80.*?/Default\.aspx    vurl
+http://www\.jpost\.com:80.*?/Article\.aspx  id
+http://www\.sfgate\.com:80.*?/article\.cgi  f
+http://www\.dailytimes\.com\.pk:80/default\.asp page
+http://mlb\.mlb\.com:80.*?/article\.jsp content_id
+http://www\.fitchratings\.com:80.*?/detail\.cfm pr_id
+http://market-ticker\.org:80/akcs-www   post
+http://www\.skynews\.com\.au:80.*?/article\.aspx    id
+http://www\.eyewitnessnews\.co\.za:80/Story\.aspx   Id
+http://www\.rotoworld\.com:80.*?/playerbreakingnews\.asp    id  sport
+http://celebs\.gather\.com:80/viewArticle\.action   articleId
+http://www\.9and10news\.com:80.*?/Story id
+http://sports\.yahoo\.com:80.*?/news    slug
+http://bbs\.chinadaily\.com\.cn:80/viewthread\.php  tid
+http://news\.businessweek\.com:80/article\.asp  documentKey
+http://www\.businessday\.co\.za:80.*?/Content\.aspx id
+http://www\.daijiworld\.com:80.*?/news_disp\.asp    n_id
+http://www\.taiwannews\.com\.tw:80.*?/news_content\.php id
+http://bostonherald\.com:80.*?/view\.bg articleid
+http://www\.newstalkzb\.co\.nz:80/newsdetail1\.asp  storyid
+http://www\.newstalkzb\.co\.nz:80/newsdetail1\.asp  storyID
+http://pakobserver\.net:80/detailnews\.asp  id
+http://news\.morningstar\.com:80.*?/article\.aspx   id
+``` 
+
+** Example of a blacklist file:
+
+```
+http://www.hulu.jp:80
+http://www.clubmed-jp.com:80
+http://www.u-tokai.ac.jp:80
+http://ads.pheedo.com:80
+http://consultant.en-japan.com:80
+http://japan.cnet.com:80
+http://jp.fujitsu.com:80
+http://membership.ft.com:80
+http://special.nikkeibp.co.jp:80
+http://www.lit.nagoya-u.ac.jp:80
+http://www.luther.ac.jp:80
+http://www.meijo-u.ac.jp:80
+http://www.nhc.noaa.gov:80
+http://www.nvlu.ac.jp:80
+https://home.modernhealthcare.com:443
+```
 
 License
 -------
