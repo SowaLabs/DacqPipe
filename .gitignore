@@ -11,3 +11,6 @@ DataHtml/
 ViewHtml/
 DumpViewHtml/
 log.txt
+
+packages/
+.vs/
