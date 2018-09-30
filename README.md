@@ -54,7 +54,7 @@ Configure and Run
  |htmlDataDumpRoot   |The location to which the rejected documents are stored in their original HTML form.                                        |Not set        |
  |htmlViewRoot       |The location to which the previews of the acquired (accepted) documents are stored. A preview is an HTML page displaying content, annotations, and metadata of the corresponding Web document.|Not set|
  |dataSourcesFileName|The name of the file containing RSS sources to be polled for content.                                                       |RssSources.txt |
- |dbConnectionString |The string containing information required to connect to the DacqPipe database.                                             |Server=(local);Database=DacqPipe;Trusted_Connection=Yes|
+ |dbConnectionString |The string containing information required to connect to the DacqPipe database.                                             |Server=127.0.0.1; Port=5432; Database=DacqPipe; Integrated Security=true;|
  |language           |The language in which the acquired (accepted) documents are written. Note that setting this to other than English turns off the NLP part of the pipeline.|English|
  |numPipes           |The number of parallel pipelines between which load balancing is performed. You should increase this if you see the RAM consumption constantly increasing (the queues are filling up). If this does not work, your system most likely does not have enough processing resources.|2|
  |sleepBetweenPolls  |The amount of time a RSS reader waits before polling its RSS feeds again from the start.                                    |00:15:00       |

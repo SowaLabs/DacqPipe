@@ -20,7 +20,7 @@ namespace Dacq
         public static readonly string DataSourcesFileName
             = Utils.GetConfigValue<string>("dataSourcesFileName", "RssSources.txt");
         public static readonly string DbConnectionString
-            = Utils.GetConfigValue<string>("dbConnectionString", "Server=(local);Database=DacqPipe;Trusted_Connection=Yes");
+            = Utils.GetConfigValue<string>("dbConnectionString", "Server=127.0.0.1;Port=5432;Database=DacqPipe;Integrated Security=true;");
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
         public static readonly bool OmitNLP
