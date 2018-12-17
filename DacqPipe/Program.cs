@@ -159,19 +159,19 @@ namespace Dacq
             PassOnComponent lb = new PassOnComponent(); // data load balancer
             lb.DispatchPolicy = DispatchPolicy.BalanceLoadMax;
             dataConsumers.Add(lb);
-            if (Config.DbConnectionString != null)
+            if (Config.DbConnectionStringOrNull != null)
             {
                 if (!Config.SkipBoilerplateHistoryInit)
                 {
-                    UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.DbConnectionString);
+                    UrlTreeBoilerplateRemoverComponent.InitializeHistory(Config.DbConnectionStringOrNull);
                 }
-                RssFeedComponent.DatabaseConnectionString = Config.DbConnectionString;
+                RssFeedComponent.DatabaseConnectionString = Config.DbConnectionStringOrNull;
             }
             for (int i = 0; i < Config.NumPipes; i++)
             {
-                DocumentWriterComponent dwc = new DocumentWriterComponent(Config.DbConnectionStringDump, /*cmdTimeout=*/0, Config.XmlDataDumpRoot, Config.HtmlDataDumpRoot, Config.HtmlDumpViewRoot);
+                DocumentWriterComponent dwc = new DocumentWriterComponent(Config.DbConnectionStringDumpOrNull, /*cmdTimeout=*/0, Config.XmlDataDumpRoot, Config.HtmlDataDumpRoot, Config.HtmlDumpViewRoot);
                 UrlTreeBoilerplateRemoverComponent bpr = new UrlTreeBoilerplateRemoverComponent();
-                DocumentWriterComponent dw = new DocumentWriterComponent(Config.DbConnectionString, /*cmdTimeout=*/0, Config.XmlDataRoot, Config.HtmlDataRoot, Config.HtmlViewRoot);
+                DocumentWriterComponent dw = new DocumentWriterComponent(Config.DbConnectionStringOrNull, /*cmdTimeout=*/0, Config.XmlDataRoot, Config.HtmlDataRoot, Config.HtmlViewRoot);
                 HtmlTokenizerComponent htc = new HtmlTokenizerComponent();
                 SentenceSplitterComponent ssc = null;
                 EnglishTokenizerComponent tok = null;

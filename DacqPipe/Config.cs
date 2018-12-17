@@ -21,6 +21,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("dataSourcesFileName", "RssSources.txt");
         public static readonly string DbConnectionString
             = Utils.GetConfigValue<string>("dbConnectionString", "Server=127.0.0.1;Port=5432;Database=DacqPipe;Integrated Security=true;");
+        public static readonly string DbConnectionStringOrNull
+            = string.IsNullOrEmpty(DbConnectionString) ? null : DbConnectionString;
         public static readonly string Language
             = Utils.GetConfigValue<string>("language", "English"); 
         public static readonly bool OmitNLP
@@ -41,6 +43,8 @@ namespace Dacq
             = Utils.GetConfigValue<string>("htmlDumpViewRoot");
         public static readonly string DbConnectionStringDump
             = Utils.GetConfigValue<string>("dbConnectionStringDump");
+        public static readonly string DbConnectionStringDumpOrNull
+            = string.IsNullOrEmpty(DbConnectionStringDump) ? null : DbConnectionStringDump;
         public static readonly string WebSiteId
             = Utils.GetConfigValue<string>("webSiteId", "dacq");
         public static readonly string ClientIp
